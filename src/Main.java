@@ -1,9 +1,18 @@
 import java.util.ArrayList;
+//Задача:
+// Напишите обобщенный класс VetClinic,
+// который представляет собой ветеринарную клинику
+// для различных видов животных. Класс должен иметь
+// методы для записи на прием, обработки пациентов и выдачи отчетов.
+// Продемонстрируйте использование этого класса для работы
+// с пациентами - собаками, кошками и другими животными.
+
 
 // Класс Pair представляет пару значений любых типов T и U
 class Pair<T, U> {
     private T first; // Первый элемент пары
     private U second; // Второй элемент пары
+
 
     // Конструктор класса Pair
     public Pair(T first, U second) {
@@ -17,11 +26,13 @@ class Pair<T, U> {
     }
 
     public U getSecond() {
+
         return second;
     }
 
     // Методы изменения элементов пары
     public void setFirst(T first) {
+
         this.first = first;
     }
 
@@ -54,9 +65,11 @@ class Box<T> {
         this.content = content;
     }
 
-    // Переопределение метода toString для красивого вывода содержимого коробки
+    @Override
     public String toString() {
-        return "Box containing: " + content;
+        return "Box{" +
+                "content=" + content +
+                '}';
     }
 }
 
@@ -96,6 +109,8 @@ public class Main {
         // Использование класса Pair
         Pair<String , Integer> pair = new Pair<>("1", 7);
         System.out.println(pair);
+        Pair<Integer, String > pair2 = new Pair<>(7, "1");
+        System.out.println(pair2);
 
         // Использование класса Box
         Box<Double> box = new Box<>(3.14);
@@ -103,10 +118,11 @@ public class Main {
         Box<String> box2 = new Box<>("Hello world!");
 
         // Использование класса GenericList
-        GenericList<String> list = new GenericList<>();
-        list.add("apple");
-        list.add("banana");
-        list.add("orange");
+        GenericList<Box<Pair<String, Integer>>> list = new GenericList<>();
+        list.add(new Box<>(new Pair<>("6", 8)));
+        list.add(new Box<>(new Pair<>("hfrre", 3)));
+        list.add(new Box<>(new Pair<>("jrtj",80)));
+
         System.out.println("List: " + list);
     }
 }
