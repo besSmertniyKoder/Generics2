@@ -47,7 +47,7 @@ class Pair<T, U> {
 }
 
 // Класс Box представляет коробку с содержимым заданного типа T
-class Box<T> {
+class Box<T extends Animal> {
     private T content; // Содержимое коробки
 
     // Конструктор класса Box
@@ -57,6 +57,7 @@ class Box<T> {
 
     // Метод доступа к содержимому коробки
     public T getContent() {
+        content.voice();
         return content;
     }
 
@@ -113,16 +114,19 @@ public class Main {
         System.out.println(pair2);
 
         // Использование класса Box
-        Box<Double> box = new Box<>(3.14);
-        System.out.println(box);
-        Box<String> box2 = new Box<>("Hello world!");
+        Box<Cat> box = new Box<>(new Cat());
+        System.out.println(box.getContent());
+        Box<wildcat> box1 = new Box<>(new wildcat());
+        System.out.println(box1.getContent());
+
+
 
         // Использование класса GenericList
-        GenericList<Box<Pair<String, Integer>>> list = new GenericList<>();
-        list.add(new Box<>(new Pair<>("6", 8)));
-        list.add(new Box<>(new Pair<>("hfrre", 3)));
-        list.add(new Box<>(new Pair<>("jrtj",80)));
-
-        System.out.println("List: " + list);
+//        GenericList<Box<Pair<String, Integer>>> list = new GenericList<>();
+//        list.add(new Box<>(new Pair<>("6", 8)));
+//        list.add(new Box<>(new Pair<>("hfrre", 3)));
+//        list.add(new Box<>(new Pair<>("jrtj",80)));
+//
+//        System.out.println("List: " + list);
     }
 }
