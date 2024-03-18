@@ -20,6 +20,7 @@ class Pair<T, U> {
         this.second = second;
     }
 
+
     // Методы доступа к элементам пары
     public T getFirst() {
         return first;
@@ -58,6 +59,7 @@ class Box<T extends Animal> {
     // Метод доступа к содержимому коробки
     public T getContent() {
         content.voice();
+
         return content;
     }
 
@@ -116,6 +118,8 @@ public class Main {
         // Использование класса Box
         Box<Cat> box = new Box<>(new Cat());
         System.out.println(box.getContent());
+//        Box<Integer> box0 = new Box<>(42);
+//        System.out.println(box0.getContent());
         Box<wildcat> box1 = new Box<>(new wildcat());
         System.out.println(box1.getContent());
 
